@@ -10,11 +10,4 @@ const httpServer = http.createServer(app);
 
 const io = new Server(httpServer);
 
-app.get('/send/', (req, res) => {
-    const message = req.query.message || '';
-    io.emit('msg', `${message}`);
-
-    res.json({ data: 'message sent' });
-});
-
 export { httpServer, io };

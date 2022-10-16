@@ -1,3 +1,4 @@
+import { Socket } from 'socket.io';
 import { io } from './app';
 
 const clients: Array<any> = [];
@@ -7,12 +8,14 @@ const time = (date: Date) => `[${date.toLocaleTimeString()}]`;
 
 io.on('connection', (client) => {
     clients.push(client);
-
     console.info(
         `${time(new Date())} \x1b[32mClient connected\x1b[0m - ${total(
             clients.length
         )}`
     );
+    client.on('msg', (data) => {
+        io.emit('msg', data);
+    });
 
     client.on('disconnect', () => {
         clients.splice(clients.indexOf(client), 1);
