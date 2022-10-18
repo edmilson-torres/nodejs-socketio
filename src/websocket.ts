@@ -1,28 +1,29 @@
 import { Socket } from 'socket.io';
 import { io } from './app';
 
-const clients: Array<any> = [];
+const users: Array<any> = [];
 const total = (clientsAmount: number) =>
     `\x1b[36mTotal:\x1b[0m ${clientsAmount}`;
 const time = (date: Date) => `[${date.toLocaleTimeString()}]`;
 
-io.on('connection', (client) => {
-    clients.push(client);
+io.on('connection', (socket) => {
+    users.push(socket);
     console.info(
         `${time(new Date())} \x1b[32mClient connected\x1b[0m - ${total(
-            clients.length
+            users.length
         )}`
     );
-    client.on('msg', (data) => {
+
+    socket.on('msg', (data) => {
         io.emit('msg', data);
     });
 
-    client.on('disconnect', () => {
-        clients.splice(clients.indexOf(client), 1);
+    socket.on('disconnect', () => {
+        users.splice(users.indexOf(socket), 1);
 
         console.info(
             `${time(new Date())} \x1b[31mClient disconnected\x1b[0m ${total(
-                clients.length
+                users.length
             )}`
         );
     });
