@@ -1,26 +1,29 @@
-const title = document.querySelector('#title');
+const socket = io('http://localhost:3000/');
+
+const messageInput = document.querySelector('#message');
+const roomInput = document.querySelector('#room');
+const nicknameInput = document.querySelector('#nickname');
 
 let id = '';
 
-const socket = io('http://localhost:3000/');
 socket.on('connect', () => {
     id = socket.io.engine.id;
-    title.innerHTML = `Socket.io ${id}`;
 });
-socket.on('msg', (message) => {
-    showMessage(message);
+socket.on('msg', (data) => {
+    showMessage(data);
 });
 
-function showMessage(message) {
-    let msgLi = document.querySelector('#messages');
-    let element = document.createElement('li');
-    element.innerHTML = `[${new Date().toLocaleTimeString()}] ${message}`;
-    element.style.listStyleType = 'none';
-    msgLi.appendChild(element);
+function showMessage(data) {
+    let msgDiv = document.querySelector('#messages');
+    const date = new Date();
+    msgDiv.innerHTML += `
+    <div class="message">
+       [${date.toLocaleTimeString()}] <span>${data}</span>
+    </div>
+    `;
 }
 
-const messageInput = document.querySelector('#message');
-
 function sendSocketMessage() {
-    socket.emit('msg', `${id}: ${messageInput.value}`);
+    const data = messageInput.value;
+    socket.emit('msg', data);
 }
