@@ -1,0 +1,24 @@
+.form_container {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+}
+
+.row {
+    padding: 5px 0px;
+    display: flex;
+    flex-direction: row;
+    margin-top: 10px;
+}
+
+.btn {
+    margin-left: 5px;
+}
+
+#messages_conteiner {
+    margin-top: 30px;
+    background-color: gray;
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+}

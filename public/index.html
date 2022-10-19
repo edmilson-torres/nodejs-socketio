@@ -5,16 +5,31 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Socket.io</title>
 </head>
 
 <body>
     <h1 id="title">Socket.io</h1>
 
-    <input onfocus="this.value=''" type="text" id="message" placeholder="Message">
-    <button type="submit" id="btn" onclick="sendSocketMessage()">Send</button>
+    <div class="form_container" id="form_container">
+        <div class="row">
+            <input onfocus="this.value=''" type="text" id="nickname" placeholder="Nickname">
+            <button type="submit" class="btn" id="btn" onclick="sendSocketMessage()">Send</button>
+        </div>
+        <div class="row">
+            <input onfocus="this.value=''" type="text" id="room" placeholder="Room">
+            <button type="submit" class="btn" id="btn" onclick="sendSocketMessage()">Send</button>
+        </div>
+        <div class="row">
+            <input onfocus="this.value=''" type="text" id="message" placeholder="Message">
+            <button type="submit" class="btn" id="btn" onclick="sendSocketMessage()">Send</button>
+        </div>
+    </div>
 
-    <ul id="messages"></ul>
+    <div id="messages_conteiner">
+        <div id="messages"></div>
+    </div>
 
     <script src="https://cdn.socket.io/4.5.3/socket.io.min.js"
         integrity="sha384-WPFUvHkB1aHA5TDSZi6xtDgkF0wXJcIIxXhC6h8OT8EH3fC5PWro5pWJ1THjcfEi"
