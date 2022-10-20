@@ -11,7 +11,10 @@ io.on('connection', (socket) => {
     });
 
     socket.on('msg', (data) => {
-        io.to(data.room).emit('msg', data.message);
+        io.to(data.room).emit('msg', {
+            nickname: data.nickname,
+            message: data.message,
+        });
     });
 
     users.push(socket);
