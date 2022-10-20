@@ -14,18 +14,20 @@
 
     <div class="form_container" id="form_container">
         <div class="row">
-            <input onfocus="this.value=''" type="text" id="nickname" placeholder="Nickname">
-            <button type="submit" class="btn" id="btn" onclick="sendSocketMessage()">Send</button>
+            <input onfocus="this.value=''" type="text" id="nicknameInput" placeholder="Nickname">
+            <button type="submit" class="btn" id="btn" onclick="setNickname()">Send</button>
         </div>
         <div class="row">
-            <input onfocus="this.value=''" type="text" id="room" placeholder="Room">
-            <button type="submit" class="btn" id="btn" onclick="sendSocketMessage()">Send</button>
+            <input onfocus="this.value=''" type="text" id="roomInput" placeholder="Room">
+            <button type="submit" class="btn" id="btn" onclick="setRoom()">Send</button>
         </div>
         <div class="row">
             <input onfocus="this.value=''" type="text" id="message" placeholder="Message">
             <button type="submit" class="btn" id="btn" onclick="sendSocketMessage()">Send</button>
         </div>
     </div>
+
+    <h2 id="room">Room</h2>
 
     <div id="messages_conteiner">
         <div id="messages"></div>

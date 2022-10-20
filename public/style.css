@@ -17,8 +17,12 @@
 
 #messages_conteiner {
     margin-top: 30px;
-    background-color: gray;
+    background-color: rgb(200, 200, 200);
     width: 400px;
     display: flex;
     flex-direction: column;
+}
+
+.message {
+    padding: 5px;
 }
