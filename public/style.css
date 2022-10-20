@@ -1,7 +1,18 @@
-.form_container {
+html {
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica,
+        Arial, sans-serif;
+    line-height: 1.5;
+    font-weight: 300;
+    color: #192229;
+    background: linear-gradient(135deg, #f4f2f3, #bfc6d0);
+    height: 100vh;
+}
+
+.container {
     display: flex;
     flex-direction: column;
     width: 400px;
+    margin: auto;
 }
 
 .row {
@@ -12,17 +23,53 @@
 }
 
 .btn {
+    color: #fff;
     margin-left: 5px;
+    border: 0px;
+    background: dodgerblue;
+    padding: 0 1rem;
+    border-radius: 0.3rem;
+    box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.3),
+        0 0.0625rem 0.125rem rgba(0, 0, 0, 0.2);
 }
 
 #messages_conteiner {
-    margin-top: 30px;
-    background-color: rgb(200, 200, 200);
     width: 400px;
     display: flex;
     flex-direction: column;
 }
 
 .message {
-    padding: 5px;
+    position: relative;
+    max-width: 30em;
+    background-color: #fff;
+    padding: 0.3em 0.7em;
+    font-size: 1.25em;
+    border-radius: 0.3rem;
+    box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.3),
+        0 0.0625rem 0.125rem rgba(0, 0, 0, 0.2);
+    margin-bottom: 0.8rem;
+}
+
+input[type='text'] {
+    border: 0px;
+    padding: 0.3em 0.7em;
+    border-radius: 0.3rem;
+    box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.3),
+        0 0.0625rem 0.125rem rgba(0, 0, 0, 0.2);
+    background: #f4f2f3;
+    transition: ease-in-out, width 0.35s ease-in-out;
+    width: 100px;
+}
+
+input[type='text']:hover {
+    background: #ffffff;
+    border: 1px solid dodgerblue;
+}
+
+input[type='text']:focus {
+    background: #ffffff;
+    border: 1px solid dodgerblue;
+    width: 150px;
+    outline: none;
 }

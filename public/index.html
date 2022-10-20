@@ -10,33 +10,35 @@
 </head>
 
 <body>
-    <h1 id="title">Socket.io</h1>
+    <div class="container">
+        <h1 id="title">Socket.io</h1>
 
-    <div class="form_container" id="form_container">
-        <div class="row">
-            <input onfocus="this.value=''" type="text" id="nicknameInput" placeholder="Nickname">
-            <button type="submit" class="btn" id="btn" onclick="setNickname()">Send</button>
+        <div class="form_container" id="form_container">
+            <div class="row">
+                <input onfocus="this.value=''" type="text" id="nicknameInput" placeholder="Nickname">
+                <button type="submit" class="btn" id="btn" onclick="setNickname()">Send</button>
+            </div>
+            <div class="row">
+                <input onfocus="this.value=''" type="text" id="roomInput" placeholder="Room">
+                <button type="submit" class="btn" id="btn" onclick="setRoom()">Send</button>
+            </div>
+            <div class="row">
+                <input type="text" id="messageInput" placeholder="Message">
+                <button type="submit" class="btn" id="btn" onclick="sendSocketMessage()">Send</button>
+            </div>
         </div>
-        <div class="row">
-            <input onfocus="this.value=''" type="text" id="roomInput" placeholder="Room">
-            <button type="submit" class="btn" id="btn" onclick="setRoom()">Send</button>
+
+        <h2 id="room">Room</h2>
+
+        <div id="messages_conteiner">
+            <div id="messages"></div>
         </div>
-        <div class="row">
-            <input onfocus="this.value=''" type="text" id="message" placeholder="Message">
-            <button type="submit" class="btn" id="btn" onclick="sendSocketMessage()">Send</button>
-        </div>
+
+        <script src="https://cdn.socket.io/4.5.3/socket.io.min.js"
+            integrity="sha384-WPFUvHkB1aHA5TDSZi6xtDgkF0wXJcIIxXhC6h8OT8EH3fC5PWro5pWJ1THjcfEi"
+            crossorigin="anonymous"></script>
+        <script src="script.js"></script>
     </div>
-
-    <h2 id="room">Room</h2>
-
-    <div id="messages_conteiner">
-        <div id="messages"></div>
-    </div>
-
-    <script src="https://cdn.socket.io/4.5.3/socket.io.min.js"
-        integrity="sha384-WPFUvHkB1aHA5TDSZi6xtDgkF0wXJcIIxXhC6h8OT8EH3fC5PWro5pWJ1THjcfEi"
-        crossorigin="anonymous"></script>
-    <script src="script.js"></script>
 </body>
 
 </html>

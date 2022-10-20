@@ -1,6 +1,6 @@
 const socket = io('http://localhost:3000/');
 
-const messageInput = document.querySelector('#message');
+const messageInput = document.querySelector('#messageInput');
 const roomInput = document.querySelector('#roomInput');
 const nicknameInput = document.querySelector('#nickname');
 const roomTitle = document.getElementById('room');
@@ -17,7 +17,7 @@ socket.on('msg', (data) => {
 
 function setRoom() {
     roomName = roomInput.value;
-    roomTitle.innerHTML = `Sala: ${roomName}`;
+    roomTitle.innerHTML = `Room: ${roomName}`;
     socket.emit('room', roomName);
 }
 
@@ -35,3 +35,12 @@ function sendSocketMessage() {
     const message = messageInput.value;
     socket.emit('msg', { room: roomName, message: message });
 }
+
+document
+    .getElementById('messageInput')
+    .addEventListener('keypress', (event) => {
+        if (event.key === 'Enter') {
+            sendSocketMessage();
+            event.target.value = '';
+        }
+    });
