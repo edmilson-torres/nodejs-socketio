@@ -5,13 +5,13 @@ html {
     font-weight: 300;
     color: #192229;
     background: linear-gradient(135deg, #f4f2f3, #bfc6d0);
-    height: 100vh;
+    height: 100%;
 }
 
 .container {
     display: flex;
     flex-direction: column;
-    width: 400px;
+    width: 500px;
     margin: auto;
 }
 
@@ -33,10 +33,10 @@ html {
         0 0.0625rem 0.125rem rgba(0, 0, 0, 0.2);
 }
 
-#messages_conteiner {
-    width: 400px;
-    display: flex;
-    flex-direction: column;
+#messages_container {
+    height: 300px;
+    overflow-y: scroll;
+    border-radius: 0.3rem;
 }
 
 .message {
@@ -46,9 +46,7 @@ html {
     padding: 0.3em 0.7em;
     font-size: 1.25em;
     border-radius: 0.3rem;
-    box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.3),
-        0 0.0625rem 0.125rem rgba(0, 0, 0, 0.2);
-    margin-bottom: 0.8rem;
+    margin: 0 1rem 1rem 0;
 }
 
 input[type='text'] {
@@ -59,7 +57,7 @@ input[type='text'] {
         0 0.0625rem 0.125rem rgba(0, 0, 0, 0.2);
     background: #f4f2f3;
     transition: ease-in-out, width 0.35s ease-in-out;
-    width: 100px;
+    width: 200px;
 }
 
 input[type='text']:hover {
@@ -70,6 +68,6 @@ input[type='text']:hover {
 input[type='text']:focus {
     background: #ffffff;
     border: 1px solid dodgerblue;
-    width: 150px;
+    width: 250px;
     outline: none;
 }

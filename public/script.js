@@ -5,13 +5,8 @@ const roomInput = document.querySelector('#roomInput');
 const nicknameInput = document.querySelector('#nicknameInput');
 const roomTitle = document.getElementById('room');
 
-let id = '';
 let roomName = '';
 let nickname = '';
-
-socket.on('connect', () => {
-    id = socket.io.engine.id;
-});
 
 function setNickname() {
     nickname = nicknameInput.value;
@@ -30,15 +25,17 @@ socket.on('msg', (data) => {
 });
 
 function showMessage(data) {
-    let msgDiv = document.querySelector('#messages');
     const date = new Date();
-    msgDiv.innerHTML += `
-    <div class="message">
-       [${date.toLocaleTimeString()}] <span>${data.nickname}:</span> <span>${
-        data.message
-    }</span>
-    </div>
+    let message = document.createElement('div');
+    message.classList.add('message');
+    message.innerHTML += `
+       [${date.toLocaleTimeString()}] <strong>${
+        data.nickname
+    }:</strong> <span>${data.message}</span>
     `;
+    document.getElementById('messages_container').appendChild(message);
+    document.getElementById('messages_container').scrollTop =
+        message.offsetHeight + message.offsetTop;
 }
 
 function sendSocketMessage() {
@@ -46,11 +43,24 @@ function sendSocketMessage() {
     socket.emit('msg', { room: roomName, message, nickname });
 }
 
-document
-    .getElementById('messageInput')
-    .addEventListener('keypress', (event) => {
-        if (event.key === 'Enter') {
-            sendSocketMessage();
-            event.target.value = '';
-        }
-    });
+messageInput.addEventListener('keypress', (event) => {
+    if (event.key === 'Enter') {
+        sendSocketMessage();
+        event.target.value = '';
+    }
+});
+
+roomInput.addEventListener('keypress', (event) => {
+    if (event.key === 'Enter') {
+        setRoom();
+        event.target.value = '';
+        messageInput.focus();
+    }
+});
+nicknameInput.addEventListener('keypress', (event) => {
+    if (event.key === 'Enter') {
+        setNickname();
+        event.target.value = '';
+        roomInput.focus();
+    }
+});
