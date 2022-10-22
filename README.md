@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="" width="800" alt="Chat real time" />
+  <img src="https://user-images.githubusercontent.com/64763336/197306758-11466dd8-62d6-4483-be2a-c3827553c515.png" width="800" alt="Chat real time" />
 </p>
 
 # ⌨️ Chat real-time
@@ -8,7 +8,7 @@ It is built on top of the WebSocket protocol and provides additional guarantees 
 
 ## 🖼️ Preview
 <p align="center">
-  <img src="" width="800" alt="Chat real time preview" />
+  <img src="https://user-images.githubusercontent.com/64763336/197306777-5dbc862f-374d-477a-bc4d-81b814c9ba8f.gif" width="800" alt="Chat real time preview" />
 </p>
 
 ## ⚙️ Technologies  
